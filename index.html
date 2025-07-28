@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Harshit Chaturvedy</title>
+  <style>
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #121212;
+  color: #e0e0e0;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: #1f1f1f;
+  color: #ffffff;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 20px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+header h1 {
+  margin: 10px 0 5px;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+header p {
+  font-size: 1em;
+  margin: 0;
+}
+
+section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h2 {
+  color: #00bcd4;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.projects,
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.7);
+}
+
+.contact a {
+  color: #4dd0e1;
+  text-decoration: none;
+}
+
+footer {
+  background-color: #1a1a1a;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+.download-btn {
+  display: inline-block;
+  background-color: #00bcd4;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 15px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.download-btn:hover {
+  background-color: #0097a7;
+}
+
+/* === Fade-in animation === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === Mobile styles === */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  header p {
+    font-size: 0.9em;
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto;
+  }
+
+  section {
+    padding: 30px 15px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .download-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header class="fade-in">
+    <img src="images/IMG_6618.JPG" alt="Profile Picture" class="profile-img" />
+    <h1>Harshit Chaturvedy</h1>
+    <p>Rising Freshmen @ FCHS | Founder/CEO STEM Sprouts | Shockers AAU Basketball Player</p>
+  </header>
+
+  <section class="fade-in">
+    <h2>About Me</h2>
+    <p>
+      I am an ambitious student with a strong passion for technology, public speaking, and leadership. I am the founder of STEM Sprouts, a youth-led nonprofit focused on expanding access to STEM education, and I have represented my school at FBLA state-level competitions. I combine creativity with initiative, always seeking meaningful ways to make a positive impact in my community. I also spend my summer time volunteering at the Forsyth County Library—effectively making sure the summer programs run smoothly.
+    </p>
+  </section>
+
+  <section class="fade-in">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card fade-in">
+        <h3>Personal Website</h3>
+        <p>A portfolio website built using HTML and CSS to showcase my work and achievements.</p>
+      </div>
+
+      <a href="https://stemsprouts.wixsite.com/info" target="_blank" class="card fade-in">
+        <h3>[STEM Sprouts] Website</h3>
+        <p>Created a website for my own nonprofit organization, STEM Sprouts. Includes testimonials, live events, and a blog page.</p>
+      </a>
+
+      <a href="https://youtu.be/wjGfvDssEpM" target="_blank" class="card fade-in">
+        <h3>[FBLA] Website for Local Business</h3>
+        <p>Created a website for Giovanni's Pizza for the FBLA competition. Got rights to use the name.</p>
+      </a>
+
+      <a href="https://youtu.be/QBBToQY-it4" target="_blank" class="card fade-in">
+        <h3>[FBLA] Extracurricular Website for School</h3>
+        <p>Built a website for my school's extracurriculars with multi-page navigation for an FBLA competition.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="card fade-in">Basic HTML & CSS</div>
+      <div class="card fade-in">Basic Python</div>
+      <div class="card fade-in">Scratch (Harvard Certified)</div>
+      <div class="card fade-in">Leadership</div>
+      <div class="card fade-in">Problem Solving</div>
+      <div class="card fade-in">Time Management</div>
+      <div class="card fade-in">Critical Thinking</div>
+      <div class="card fade-in">Creativity</div>
+      <div class="card fade-in">Adaptability</div>
+      <div class="card fade-in">Public Speaking</div>
+      <div class="card fade-in">Teamwork</div>
+      <div class="card fade-in">Design</div>
+    </div>
+  </section>
+
+  <section class="contact fade-in">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:harshitchaturvedy@gmail.com">harshitchaturvedy@gmail.com</a></p>
+    <p>Phone Number: +1(470)-850-4323</p>
+    <p><a href="https://www.linkedin.com/in/harshit-chaturvedy-b001b3373/">LinkedIn Page</a></p>
+    <p><a href="Harshit Chaturvedy Brag Sheet.pdf" download class="download-btn">Download My Brag Sheet</a></p>
+  </section>
+
+  <footer class="fade-in">
+    &copy; 2025 Harshit Chaturvedy. All rights reserved.
+  </footer>
+
+  <!-- ✨ Scroll animation script -->
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+      threshold: 0.1
+    };
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+</body>
+</html>
