@@ -5,16 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Harshit Chaturvedy</title>
   <style>
-    nav {
-  background-color: #1f1f1f;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  position: sticky;
-  top: 0;
-  z-index: 9999; /* Increase this value */
-}
     :root {
       --bg: #121212;
       --card: #1e1e1e;
@@ -53,7 +43,7 @@
       font-size: 1.2em;
     }
 
-    nav ul {
+    .nav-links {
       list-style: none;
       display: flex;
       gap: 20px;
@@ -61,14 +51,82 @@
       padding: 0;
     }
 
-    nav ul li a {
+    .nav-links li a {
       color: var(--text);
       text-decoration: none;
       font-weight: bold;
     }
 
-    nav ul li a:hover {
+    .nav-links li a:hover {
       color: var(--accent);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      transition: 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        background-color: #1f1f1f;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        box-sizing: border-box;
+      }
+
+      .nav-links.show {
+        max-height: 400px;
+        padding: 20px;
+      }
+
+      .nav-links li {
+        margin: 15px 0;
+        text-align: center;
+      }
+
+      .nav-links li a {
+        display: block;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .nav-links li a:hover {
+        background-color: #333;
+        color: var(--accent);
+      }
     }
 
     header {
@@ -162,14 +220,11 @@
     }
 
     @media (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-        align-items: flex-end;
-      }
       .profile-img {
         width: 100px;
         height: 100px;
       }
+
       section {
         padding: 30px 15px;
       }
@@ -180,7 +235,12 @@
 
   <nav>
     <h1>Harshit</h1>
-    <ul>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -196,7 +256,7 @@
 
   <section class="fade-in" id="about">
     <h2>About Me</h2>
-    <p>I am an ambitious student with a strong passion for technology, public speaking, and leadership. I’m the founder of STEM Sprouts, a youth-led nonprofit expanding STEM access. I’ve represented my school at FBLA state-level competitions and also volunteer at Forsyth County Library to help run summer programs.</p>
+    <p>I am an ambitious student with a strong passion for technology, public speaking, and leadership. I'm the founder of STEM Sprouts, a youth-led nonprofit expanding STEM access. I've represented my school at FBLA state-level competitions and also volunteer at Forsyth County Library to help run summer programs.</p>
   </section>
 
   <section class="fade-in" id="projects">
@@ -212,7 +272,7 @@
       </a>
       <a href="https://youtu.be/wjGfvDssEpM" target="_blank" class="card fade-in">
         <h3>[FBLA] Local Business</h3>
-        <p>Website for Giovanni’s Pizza built for FBLA competition.</p>
+        <p>Website for Giovanni's Pizza built for FBLA competition.</p>
       </a>
       <a href="https://youtu.be/QBBToQY-it4" target="_blank" class="card fade-in">
         <h3>[FBLA] School Extracurriculars</h3>
@@ -248,6 +308,23 @@
   </footer>
 
   <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('show');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+        hamburger.classList.remove('active');
+      });
+    });
+
+    // Fade-in animation
     const faders = document.querySelectorAll('.fade-in');
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
